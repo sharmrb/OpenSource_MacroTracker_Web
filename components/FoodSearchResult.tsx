@@ -32,7 +32,9 @@ export function FoodSearchResult({ food, onAdd }: FoodSearchResultProps) {
             </Badge>
           )}
           {food.verified && (
-            <ShieldCheck className="h-3.5 w-3.5 text-green-500 shrink-0" title="Verified food entry" />
+            <span title="Verified food entry">
+              <ShieldCheck className="h-3.5 w-3.5 text-green-500 shrink-0" />
+            </span>
           )}
         </div>
 

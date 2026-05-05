@@ -176,7 +176,6 @@ export const mockProfile: Profile = {
     id: "u1",
     name: "Alex Johnson",
     email: "alex@example.com",
-    avatar: undefined,
   },
   goals: {
     calories: 2000,

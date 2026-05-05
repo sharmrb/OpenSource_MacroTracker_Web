@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MacroFree - Open Source Macro Tracker
+
+A free, open-source macro and nutrition tracker built with Next.js 14, TypeScript, and Tailwind CSS.
+
+## Features
+
+- Track daily calorie and macro intake (protein, carbs, fat)
+- Search a community food database
+- Barcode scanning via device camera
+- Daily dashboard with visual progress rings and bars
+- Weekly/monthly history charts
+- Custom daily macro goal settings
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Data Fetching**: TanStack React Query
+- **Client State**: Zustand
+- **Forms**: React Hook Form + Zod
+- **Charts**: Recharts
+- **Icons**: Lucide React
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Setup
+
+1. Clone the repo and navigate to the web directory:
+   ```bash
+   cd OpenSource_MacroTracker_Web
+   ```
+
+2. Copy the example env file:
+   ```bash
+   cp .env.local.example .env.local
+   ```
+
+3. Edit `.env.local` and set `NEXT_PUBLIC_API_URL` to your backend URL (defaults to `http://localhost:3001`).
+
+4. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+5. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Building for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+  (auth)/
+    login/       - Login page
+    register/    - Register page
+  dashboard/     - Main dashboard
+  log/           - Food logging / search
+  history/       - Past log history with charts
+  foods/         - Community food database
+  profile/       - User profile and goals
+  layout.tsx     - Root layout
+  page.tsx       - Landing page
+components/
+  ui/            - shadcn/ui base components
+  MacroRing.tsx  - Circular calorie progress
+  MacroBar.tsx   - Horizontal macro progress bars
+  FoodSearchResult.tsx
+  MealSection.tsx
+  DailyChart.tsx
+  NavBar.tsx
+  SideBar.tsx
+  BottomNav.tsx
+lib/
+  api.ts         - Typed API fetch helpers
+  auth.ts        - Auth utilities
+  mock-data.ts   - Mock/placeholder data
+  utils.ts       - Utility functions
+store/
+  useAuthStore.ts
+  useLogStore.ts
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+| Variable | Description | Default |
+|---|---|---|
+| `NEXT_PUBLIC_API_URL` | Backend API base URL | `http://localhost:3001` |
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pull requests are welcome! Please open an issue first to discuss what you would like to change.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT

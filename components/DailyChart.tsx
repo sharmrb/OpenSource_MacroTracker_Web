@@ -49,7 +49,7 @@ export function DailyChart({ data, goalCalories = 2000, mode = "calories" }: Dai
               border: "1px solid #e5e7eb",
               fontSize: "12px",
             }}
-            formatter={(val: number, name: string) => [`${Math.round(val)}g`, name]}
+            formatter={(val, name) => [`${Math.round(Number(val ?? 0))}g`, name]}
           />
           <Bar dataKey="protein" name="Protein" fill="#3b82f6" radius={[4, 4, 0, 0]} stackId="macros" />
           <Bar dataKey="carbs" name="Carbs" fill="#f97316" radius={[0, 0, 0, 0]} stackId="macros" />
@@ -71,7 +71,7 @@ export function DailyChart({ data, goalCalories = 2000, mode = "calories" }: Dai
             border: "1px solid #e5e7eb",
             fontSize: "12px",
           }}
-          formatter={(val: number) => [`${Math.round(val)} kcal`, "Calories"]}
+          formatter={(val) => [`${Math.round(Number(val ?? 0))} kcal`, "Calories"]}
         />
         <ReferenceLine
           y={goalCalories}
